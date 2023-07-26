@@ -1,0 +1,32 @@
+{
+  "name": "ecommerce_api_express",
+  "version": "1.0.0",
+  "description": "rest endpoints for eCommerce app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MUSTAFA-Hamzawy/contact-management-app-Node.js.git"
+  },
+  "author": "Mustafa Hamzway",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MUSTAFA-Hamzawy/contact-management-app-Node.js/issues"
+  },
+  "homepage": "https://github.com/MUSTAFA-Hamzawy/contact-management-app-Node.js#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.1"
+  }
+}
