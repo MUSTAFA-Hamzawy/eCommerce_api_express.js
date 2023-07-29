@@ -3,7 +3,9 @@ const express = require('express');
 const connectDB = require('./config/connectDB');
 const ErrorHandlerMiddleware = require('./middlewares/ErrorHandlerMiddleware');
 const userRoutes = require('./routes/user');
-const status = require('./config/statusCodes');
+const brandRoutes = require('./routes/brand');
+const categoryRoutes = require('./routes/category');
+const status = require('./helpers/statusCodes');
 
 // Loading env file
 require('dotenv').config();
@@ -27,6 +29,10 @@ app.use(express.json()) // Built-in Middleware To parse any request body
 
 /***************************   Routes  *************************************/
 app.use('/user', userRoutes);
+app.use('/brand', brandRoutes);
+app.use('/category', categoryRoutes);
+
+
 
 
 /***************************   Middlewares  *************************************/
