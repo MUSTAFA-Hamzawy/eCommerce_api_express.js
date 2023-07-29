@@ -1,4 +1,4 @@
-const status = require("../config/statusCodes");
+const status = require("../helpers/statusCodes");
 
 const ErrorHandlerMiddleware = (err, req, res, next) => {
     const statusCode = res.statusCode || status.SERVER_ERROR;
@@ -27,7 +27,14 @@ const ErrorHandlerMiddleware = (err, req, res, next) => {
             break;
     }
 
-    res.json(getErrorBody(errorType, JSON.parse(err.message)));
+    // This nex try-catch, because the err.message might be coming as string and in this case there is no need for parsing it.
+    try {
+        res.json(getErrorBody(errorType, JSON.parse(err.message)));
+    } catch (error) {
+        res.json(getErrorBody(errorType, err.message));
+    }
+    
+
 }
 
 
