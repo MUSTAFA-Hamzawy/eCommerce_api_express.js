@@ -11,8 +11,8 @@ module.exports = {
 } = CategoryController;
 
 
-router.get('/all', ValidateTokenMiddleware, getAll);
-router.get('/:id', ValidateTokenMiddleware, getCategory);
+router.get('/all', getAll);
+router.get('/:id', getCategory);
 router.post('/add', ValidateTokenMiddleware, addCategory);
 router.put('/update', ValidateTokenMiddleware, updateCategory);
 router.delete('/delete', ValidateTokenMiddleware, deleteCategory);
