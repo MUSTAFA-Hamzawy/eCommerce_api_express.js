@@ -11,8 +11,8 @@ module.exports = {
 } = BrandController;
 
 
-router.get('/all', ValidateTokenMiddleware, getAll);
-router.get('/:id', ValidateTokenMiddleware, getBrand);
+router.get('/all', getAll);
+router.get('/:id', getBrand);
 router.post('/add', ValidateTokenMiddleware, addBrand);
 router.put('/update', ValidateTokenMiddleware, updateBrand);
 router.delete('/delete', ValidateTokenMiddleware, deleteBrand);
