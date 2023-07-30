@@ -11,7 +11,6 @@ const connectDB = async()=> {
         return true;
     } catch (error) {
         console.error(error.message);
-        exit(1);
     }
 }
 
