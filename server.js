@@ -4,6 +4,7 @@ const connectDB = require('./config/connectDB');
 const ErrorHandlerMiddleware = require('./middlewares/ErrorHandlerMiddleware');
 const userRoutes = require('./routes/user');
 const brandRoutes = require('./routes/brand');
+const productRoutes = require('./routes/product');
 const categoryRoutes = require('./routes/category');
 const status = require('./helpers/statusCodes');
 
@@ -31,6 +32,7 @@ app.use(express.json()) // Built-in Middleware To parse any request body
 app.use('/user', userRoutes);
 app.use('/brand', brandRoutes);
 app.use('/category', categoryRoutes);
+app.use('/product', productRoutes);
 
 
 
