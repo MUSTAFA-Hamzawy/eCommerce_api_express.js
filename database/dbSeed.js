@@ -2,10 +2,12 @@ const connectDB = require('../config/connectDB');
 const UserModel = require('../models/UserModel');
 const BrandModel = require('../models/BrandModel');
 const CategoryModel = require('../models/CategoryModel');
+const ProductModel = require('../models/ProductModel');
 require('dotenv').config();
 const users = require('../database/userSeed');
 const brands = require('../database/brandSeed');
 const categories = require('../database/categorySeed');
+const products = require('../database/productSeed');
 
 const usersSeeding = async ()=>{
     UserModel.insertMany(users)
@@ -34,12 +36,22 @@ const categoriesSeeding = async ()=>{
     });
 }
 
+const productsSeeding = async ()=>{
+    ProductModel.insertMany(products)
+    .then(docs => console.log(`${docs.length} products have been inserted into the database.`))
+    .catch(err => {
+    console.error(err);
+    console.error(`${err.writeErrors?.length ?? 0} errors occurred during the insertMany operation.`);
+    });
+}
+
 if(connectDB()){
     console.log('connected to db.');
 
-    // seeding brands
+    // seeding 
     usersSeeding();
     brandsSeeding();
     categoriesSeeding();
+    productsSeeding();
 
 }
