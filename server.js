@@ -2,11 +2,14 @@
 const express = require('express');
 const connectDB = require('./config/connectDB');
 const ErrorHandlerMiddleware = require('./middlewares/ErrorHandlerMiddleware');
+const status = require('./helpers/statusCodes');
+
+// Import route files
 const userRoutes = require('./routes/user');
 const brandRoutes = require('./routes/brand');
 const productRoutes = require('./routes/product');
 const categoryRoutes = require('./routes/category');
-const status = require('./helpers/statusCodes');
+const cartRoutes = require('./routes/cart');
 
 // Loading env file
 require('dotenv').config();
@@ -33,6 +36,7 @@ app.use('/user', userRoutes);
 app.use('/brand', brandRoutes);
 app.use('/category', categoryRoutes);
 app.use('/product', productRoutes);
+app.use('/cart', cartRoutes);
 
 
 
