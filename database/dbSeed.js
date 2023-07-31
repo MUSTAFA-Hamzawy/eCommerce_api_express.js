@@ -1,9 +1,13 @@
 const connectDB = require('../config/connectDB');
+require('dotenv').config();
+
+// Models
 const UserModel = require('../models/UserModel');
 const BrandModel = require('../models/BrandModel');
 const CategoryModel = require('../models/CategoryModel');
 const ProductModel = require('../models/ProductModel');
-require('dotenv').config();
+
+// data fiels
 const users = require('../database/userSeed');
 const brands = require('../database/brandSeed');
 const categories = require('../database/categorySeed');
@@ -53,5 +57,4 @@ if(connectDB()){
     brandsSeeding();
     categoriesSeeding();
     productsSeeding();
-
 }
