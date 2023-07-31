@@ -10,6 +10,7 @@ const brandRoutes = require('./routes/brand');
 const productRoutes = require('./routes/product');
 const categoryRoutes = require('./routes/category');
 const cartRoutes = require('./routes/cart');
+const searchRoutes = require('./routes/search');
 
 // Loading env file
 require('dotenv').config();
@@ -37,6 +38,7 @@ app.use('/brand', brandRoutes);
 app.use('/category', categoryRoutes);
 app.use('/product', productRoutes);
 app.use('/cart', cartRoutes);
+app.use('/search', searchRoutes);
 
 
 
