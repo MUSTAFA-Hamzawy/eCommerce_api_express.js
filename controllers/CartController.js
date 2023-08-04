@@ -5,7 +5,7 @@ const statusCodes = require('../helpers/statusCodes');
 
 
 const getCart = asyncHandler(async (req, res)=>{
-    const userId = req.params.userId;
+    const userId = req.user.id;
     const populateOptions = {
         path: 'products.product',
         select: 'productTitle productPrice'
@@ -37,7 +37,8 @@ const createNewCart = async(userId)=>{
 }
 
 const addToCart = asyncHandler(async (req, res)=>{
-    const {userId, product} = req.body;
+    const userId = req.user.id;
+    const {product} = req.body;
     let userCart = await CartModel.findOne({user: userId}) || null;
     const foundProduct = await ProductModel.findOne({_id: product.productId}) || null;
     
@@ -70,7 +71,8 @@ const addToCart = asyncHandler(async (req, res)=>{
 });
 
 const deleteFromCart = asyncHandler(async (req, res)=>{
-    const {userId, productId} = req.body;
+    const userId = req.user.id;
+    const {productId} = req.body;
     const userCart = await CartModel.findOne({user: userId}) || null;
     
     if(userCart == null){

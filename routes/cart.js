@@ -9,7 +9,7 @@ module.exports = {
 } = CartController;
 
 router.use(ValidateTokenMiddleware);
-router.get('/:userId', getCart);
+router.get('/', getCart);
 router.post('/addToCart', addToCart);
 router.put('/deleteFromCart', deleteFromCart);
 
