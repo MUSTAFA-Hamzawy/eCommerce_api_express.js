@@ -70,7 +70,12 @@ To get a local copy up and running follow these simple steps.
 ```sh
     npm install
 ```
-4. Start Running
+4. Seed Database
+
+```sh
+    npm run seed
+```
+5. Start Running
 ```sh
     npm start
 ```
