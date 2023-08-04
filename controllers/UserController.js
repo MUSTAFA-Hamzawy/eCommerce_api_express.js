@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const UserModel = require('../models/UserModel');
+const TokenBlackListModel = require('../models/TokenBlackListModel');
 const bcrypt = require('bcrypt');
 const status = require('../helpers/statusCodes');
 const jwt = require('jsonwebtoken');
@@ -107,7 +108,7 @@ const validateRegistrationData = async(data)=>{
     return errors;
 }
 
-const register = asyncHandler( async (req, res, next)=>{
+const register = asyncHandler( async (req, res)=>{
     const{fullName, email, username, phoneNumber, password} = req.body;
 
 
@@ -128,10 +129,22 @@ const register = asyncHandler( async (req, res, next)=>{
     }
 
 }
-)
+);
+
+const logout = asyncHandler( async (req, res)=>{
+    const authHeader = req.headers.Authorization || req.headers.authorization;
+    const token = authHeader.split(' ')[1];
+
+    // Just adding this token to the TokenBlackList
+    await TokenBlackListModel.create({token});
+    res.status(status.OK);
+    res.json({"msg": "Logged out."});
+}
+);
 
 module.exports = {
     getProfile,
     login,
-    register
+    register,
+    logout
 }
