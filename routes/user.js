@@ -5,7 +5,8 @@ const ValidateTokenMiddleware = require('../middlewares/ValidateTokenMiddleware'
 module.exports = {
     getProfile,
     login,
-    register
+    register,
+    logout
 } = UserController;
 
 
@@ -13,5 +14,6 @@ module.exports = {
 router.get('/profile', ValidateTokenMiddleware, getProfile);
 router.post('/login', login);
 router.post('/register', register);
+router.get('/logout', ValidateTokenMiddleware, logout);
 
 module.exports = router;
