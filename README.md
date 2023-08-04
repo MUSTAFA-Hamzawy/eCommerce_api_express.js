@@ -57,7 +57,7 @@ To get a local copy up and running follow these simple steps.
 ```sh
     cp .env.example .env
  
-    PORT= 5000
+    PORT= 3005
     CONNECTION_STRING= your db connection string
     JWT_ACCESS_TOKEN_KEY= generate it (run node in terminal --> require('crypto').randomBytes(60).toString('hex')
     JWT_REFRESH_TOKEN_KEY= generate it (run node in terminal --> require('crypto').randomBytes(60).toString('hex')
