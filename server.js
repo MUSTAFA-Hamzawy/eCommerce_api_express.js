@@ -11,6 +11,7 @@ const productRoutes = require('./routes/product');
 const categoryRoutes = require('./routes/category');
 const cartRoutes = require('./routes/cart');
 const searchRoutes = require('./routes/search');
+const orderRoutes = require('./routes/order');
 
 // Loading env file
 require('dotenv').config();
@@ -39,6 +40,7 @@ app.use('/category', categoryRoutes);
 app.use('/product', productRoutes);
 app.use('/cart', cartRoutes);
 app.use('/search', searchRoutes);
+app.use('/order', orderRoutes);
 
 
 
